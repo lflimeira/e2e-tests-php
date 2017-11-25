@@ -1,0 +1,13 @@
+{
+  "name": "e2e Tests",
+  "description": "Projeto para artigo sobre testes de comportamento",
+  "authors": [
+    {
+      "name": "Luiz Felipe",
+      "email": "lflimeira02@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.2.8"
+  }
+}

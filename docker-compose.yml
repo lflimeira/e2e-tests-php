@@ -1,0 +1,40 @@
+version: '2'
+services:
+  
+  selenium:
+    image: selenium/hub:2.45.0
+    ports:
+      - "4444:4444"
+
+  firefox:
+    image: selenium/node-firefox-debug:2.45.0
+    privileged: true
+    depends_on:
+      - selenium
+    ports:
+      - "5900:5900"
+    environment:
+      - no_proxy=localhost
+      - HUB_PORT_4444_TCP_ADDR=selenium
+      - HUB_PORT_4444_TCP_PORT=4444  
+  
+  mysql:
+    image: mysql:5.5
+    env_file: .env
+  
+  php:
+    image: php:7.1-fpm
+    command: php -S 0.0.0.0:8080 /app/index.php
+    volumes:
+      - .:/app
+    working_dir: /app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+
+  composer:
+    image: composer/composer:php7
+    command: install
+    volumes:
+      - .:/app    
