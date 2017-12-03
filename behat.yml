@@ -4,7 +4,7 @@ default:
     - %paths.base%/tests/acceptance/
   extensions:
     Behat\MinkExtension:
-      base_url: http://e2e-tests-php/
+      base_url: http://php/
       sessions:
         default_session:
           selenium2:
@@ -15,8 +15,3 @@ default:
         - %paths.base%/tests/acceptance/features/cad_user.feature
       contexts:
         - CadUserContext
-    user_login:
-      paths:
-        - %paths.base%/tests/acceptance/features/user_login.feature
-      contexts:
-        - UserLoginContext
