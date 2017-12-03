@@ -24,7 +24,7 @@ services:
   
   php:
     image: php:7.1-fpm
-    command: php -S 0.0.0.0:8080 /app/index.php
+    command: php -S 0.0.0.0:8080 /app/public/index.php
     volumes:
       - .:/app
     working_dir: /app
