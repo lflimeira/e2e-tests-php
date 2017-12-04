@@ -4,7 +4,7 @@ default:
     - %paths.base%/tests/acceptance/
   extensions:
     Behat\MinkExtension:
-      base_url: http://php/
+      base_url: http://php:8080/
       sessions:
         default_session:
           selenium2:
