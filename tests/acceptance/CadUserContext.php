@@ -22,9 +22,9 @@ class CadUserContext extends RawMinkContext
     {
         $this->getSession()->wait(
             5000, 
-            "document.querySelector('#signup').style.display != 'none'"
+            "document.readyState === 'complete'"
         );
-        $this->getSession()->getPage()->pressButton("#signup");
+        $this->getSession()->getPage()->clickLink("signup");
     }
 
     /**
@@ -36,7 +36,7 @@ class CadUserContext extends RawMinkContext
             5000, 
             "document.querySelector('#user_name').style.display != 'none'"
         );
-        $this->getSession()->getPage()->fillField("#user_name", $name);
+        $this->getSession()->getPage()->fillField("user_name", $name);
     }
 
     /**
@@ -44,7 +44,7 @@ class CadUserContext extends RawMinkContext
      */
     public function fillEmailWith($email)
     {
-        $this->getSession()->getPage()->fillField("#user_email", $email);
+        $this->getSession()->getPage()->fillField("user_email", $email);
     }
 
     /**
@@ -52,7 +52,7 @@ class CadUserContext extends RawMinkContext
      */
     public function fillPasswordWith($password)
     {
-        $this->getSession()->getPage()->fillField("#user_password", $password);
+        $this->getSession()->getPage()->fillField("user_password", $password);
     }
     
     /**
@@ -60,7 +60,7 @@ class CadUserContext extends RawMinkContext
      */
     public function addUser()
     {
-        $this->getSession()->getPage()->pressButton("#add_user");
+        $this->getSession()->getPage()->pressButton("signup");
     }
 
     /**
@@ -68,13 +68,13 @@ class CadUserContext extends RawMinkContext
      */
     public function theUserMustBeAddWithSuccess()
     {
-        $this->getSession()->wait(10000);
+        $this->getSession()->wait(3000);
         $page = $this->getSession()->getPage();
 
         $successMessage = $page->find('css', 'h1')->getText();
 
         \PHPUnit_Framework_TestCase::assertEquals(
-            'Your order has been received.',
+            'Successfully added user.',
             $successMessage
         );
     }
