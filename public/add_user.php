@@ -10,7 +10,12 @@
 <div class="container">
 
   <div class="row" id="pwd-container">
-
+    <div style="text-align: center;" class="col-md-12">
+        <?php if(isset($_POST['go'])): ?>
+            <h1>Successfully added user.</h1>
+        <?php endif; ?>
+    </div>
+    <div class="col-md-4"></div>
     <div class="col-md-4">
       <section class="login-form">
         <form method="post" action="#" role="login">
@@ -23,7 +28,7 @@
 
             <div class="pwstrength_viewport_progress"></div>
 
-            <button type="submit" name="go" class="btn btn-lg btn-primary btn-block">Sign up</button>
+            <button type="submit" id="signup" name="go" class="btn btn-lg btn-primary btn-block">Sign up</button>
 
          </form>
       </section>  

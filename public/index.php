@@ -23,7 +23,7 @@
           <div class="pwstrength_viewport_progress"></div>
 
 
-          <button type="submit" name="go" class="btn btn-lg btn-primary btn-block">Sign in</button>
+          <button type="submit" id="signin" name="go" class="btn btn-lg btn-primary btn-block">Sign in</button>
           <div>
             <a id="signup" href="add_user.php">Create account</a>
           </div>
