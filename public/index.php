@@ -10,14 +10,22 @@
 <div class="container">
 
   <div class="row" id="pwd-container">
+    <div style="text-align: center;" class="col-md-12">
+        <?php if(isset($_POST['go'])): ?>
+            <?php if($_POST['email'] == "xxx@gmail.com" && $_POST['password'] == "123"): ?>
+               <h1>Successfully added user.</h1>
+            <?php else: ?>
+               <h1>Failed to login.</h1>
+            <?php endif; ?>
+        <?php endif; ?>
+    </div>
     <div class="col-md-4"></div>
-
     <div class="col-md-4">
       <section class="login-form">
         <form method="post" action="#" role="login">
-          <input type="email" name="email" placeholder="Email" required class="form-control input-lg" value="" />
+          <input type="email" name="email" id="email" placeholder="Email" required class="form-control input-lg" value="" />
 
-          <input type="password" class="form-control input-lg" id="password" placeholder="Password" required="" />
+          <input type="password" name="password" id="password" class="form-control input-lg" id="password" placeholder="Password" required="" />
 
 
           <div class="pwstrength_viewport_progress"></div>
