@@ -59,4 +59,19 @@ class UserLoginContext extends RawMinkContext
         );
     }
 
+    /**
+     * @Then a successfully message should be shown
+     */
+    public function aSuccessfullyMessageShouldBeShown()
+    {
+        $this->getSession()->wait(3000);
+        $page = $this->getSession()->getPage();
+
+        $successMessage = $page->find('css', 'h1')->getText();
+
+        \PHPUnit_Framework_TestCase::assertEquals(
+            'Successfully logged in.',
+            $successMessage
+        );
+    }
 }
