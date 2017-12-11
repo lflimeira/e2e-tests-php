@@ -15,3 +15,8 @@ default:
         - %paths.base%/tests/acceptance/features/cad_user.feature
       contexts:
         - CadUserContext
+    user_login:   
+      paths:    
+        - %paths.base%/tests/acceptance/features/user_login.feature    
+      contexts:   
+        - UserLoginContext
