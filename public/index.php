@@ -13,7 +13,7 @@
     <div style="text-align: center;" class="col-md-12">
         <?php if(isset($_POST['go'])): ?>
             <?php if($_POST['email'] == "xxx@gmail.com" && $_POST['password'] == "123"): ?>
-               <h1>Successfully added user.</h1>
+               <h1>Successfully logged in.</h1>
             <?php else: ?>
                <h1>Failed to login.</h1>
             <?php endif; ?>
